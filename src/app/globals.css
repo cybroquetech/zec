@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-zippy-orange: #d67a5b;
+  --color-zippy-dark: #1a1a1a;
+  --color-zippy-cream: #f5f1e8;
+  --color-zippy-cream-dark: #e8e2d4;
+  
+  --font-sans: var(--font-gt-ultra), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-gt-ultra), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  @apply font-sans antialiased;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+/* Custom animations for the hero section */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 1s ease-out forwards;
+}
