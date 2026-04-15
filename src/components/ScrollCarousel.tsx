@@ -16,19 +16,19 @@ const slides = [
   {
     id: 2,
     section: "FOR BEGINNERS",
-    title: "Beginner Program",
-    description: "Learn the fundamentals saddling, mounting, walking, and finding your balance. The right place to begin your riding journey.",
+    title: "Foundation Program",
+    description: "Build strong riding fundamentals from posture and balance to walk, trot, and canter. Learn how to understand and work with your horse, both in and out of the saddle.",
     image: "/assets/images/pic2.jpg",
-    bgColor: "#1C2245", // Dark Blue
+    bgColor: "#526FAE", // Dark Blue
     buttonText: "Book a Trial"
   },
   {
     id: 3,
     section: "ALREADY RIDING?",
-    title: "Novice • Intermediate • Advanced • Dressage • Showjumping",
-    description: "If you've already got the basics, we'll take you futher. From posting trot to independant canter structured programs that build real skill at your pace.",
+    title: "Development • Performance • Dressage • Showjumping",
+    description: "Move beyond the basics with structured training that builds control, balance, and discipline-specific skills. Progress from refinement to performance, with a clear path towards competitive riding.",
     image: "/assets/images/pic3.jpg",
-    bgColor: "#526FAE", // Light Blue
+    bgColor: "#1C2245", // Light Blue
     buttonText: "See all Programs"
   }
 ];
