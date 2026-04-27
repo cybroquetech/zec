@@ -6,7 +6,7 @@ export default function ProgramsHero() {
       {/* Background Image overlay to create the tinted effect */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/assets/images/pic4.jpg" // Using pic4.jpg as a placeholder
+          src="/assets/images/programsimg.svg" // Using programsimg.svg as requested
           alt="Horse and rider"
           fill
           className="object-cover object-center mix-blend-luminosity opacity-40"
