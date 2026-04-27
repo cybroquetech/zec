@@ -37,13 +37,15 @@ export default function AboutTeamSection() {
 
         <div className="relative max-w-[1200px] mx-auto">
           {/* Background Pattern */}
-          <div className="absolute top-[10%] lg:top-[5%] left-0 w-full h-[50%] z-0 flex justify-center opacity-60 pointer-events-none">
-            <Image
-              src="/assets/images/aboutpattern2.svg"
-              alt="Background pattern"
-              fill
-              className="object-contain object-top"
-            />
+          <div className="absolute top-[-30px] md:top-[-60px] left-0 w-full h-[120px] md:h-[180px] z-0 pointer-events-none opacity-100 flex justify-center">
+            <div className="relative w-full h-full max-w-[900px] mx-auto">
+              <Image
+                src="/assets/images/aboutpattern2.svg"
+                alt="Background pattern"
+                fill
+                className="object-contain object-top"
+              />
+            </div>
           </div>
 
           {/* Team Grid */}

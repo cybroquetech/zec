@@ -1,16 +1,32 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motion';
 
 const Footer = () => {
+  const containerRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "start 20%"] // Transition happens as footer enters screen
+  });
+
+  // Top color remains the same to blend with previous section
+  const color1 = useTransform(scrollYProgress, [0, 1], ['#FFF8E5', '#FFF8E5']);
+  // Middle and bottom colors fade to orange
+  const color2 = useTransform(scrollYProgress, [0, 1], ['#FFF8E5', '#DA7347']);
+  const color3 = useTransform(scrollYProgress, [0, 1], ['#FFF8E5', '#DA7347']);
+
+  // This creates a smooth scroll animation that reveals a gradient
+  const background = useMotionTemplate`linear-gradient(to bottom, ${color1} 0%, ${color2} 40%, ${color3} 100%)`;
+
   return (
-    <footer 
+    <motion.footer 
+      ref={containerRef}
       className="relative w-full px-6 pt-48 pb-20 md:pb-32"
-      style={{ 
-        background: 'linear-gradient(to bottom, #FFF8E5 0%, #DA7347 15%, #DA7347 100%)' 
-      }}
+      style={{ background }}
     >
       <div className="container mx-auto max-w-7xl">
           
@@ -103,7 +119,7 @@ const Footer = () => {
           </div>
 
         </div>
-    </footer>
+    </motion.footer>
   );
 };
 

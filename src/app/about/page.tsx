@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import AboutHero from "@/components/AboutHero";
 import AboutStorySection from "@/components/AboutStorySection";
 import AboutTeamSection from "@/components/AboutTeamSection";
-import AboutSection from "@/components/AboutSection";
+import Footer from "@/components/Footer";
 
 export default function AboutPage() {
   return (
@@ -11,7 +11,7 @@ export default function AboutPage() {
       <AboutHero />
       <AboutStorySection />
       <AboutTeamSection />
-      <AboutSection />
+      <Footer />
     </main>
   );
 }

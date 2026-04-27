@@ -58,6 +58,7 @@ export default function ProgramsJourney() {
                   <div
                     key={item.id}
                     className="border-b border-[#85431E]/20 flex flex-col"
+                    onMouseEnter={() => setActiveIndex(index)}
                   >
                     <button
                       onClick={() => setActiveIndex(index)}
