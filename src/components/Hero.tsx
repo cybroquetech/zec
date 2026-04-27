@@ -1,32 +1,22 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
     <section className="relative h-screen min-h-[700px] w-full overflow-hidden flex items-center justify-center text-center font-sans">
       {/* Video Background Placeholder */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-zippy-orange/40 to-black/80 z-10" />
-        {/* Placeholder for video - using a stylized background for now */}
-        <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center">
-          {/* Real video tag would go here */}
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover opacity-60 grayscale-[0.2]"
-            poster="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-          >
-            {/* The user asked for a placeholder, but I can put a sample equestrian video if I find a reliable URL. 
-                For now, I'll use a high-quality stock video placeholder if available, otherwise just the image. */}
-            <source src="https://player.vimeo.com/external/454503827.sd.mp4?s=3401763c32e5d774b706f366e63777d10e542566&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
-          </video>
-        </div>
+      <div className="absolute inset-0 z-0 bg-[#FFF8E5]">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/60 z-10" />
+        <Image 
+          src="/assets/images/herosectionimg.svg" 
+          alt="Zippy Equestrian Hero" 
+          fill
+          unoptimized
+          priority
+          className="object-cover object-center opacity-90"
+        />
       </div>
 
       {/* Content */}

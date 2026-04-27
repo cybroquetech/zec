@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
 
 const cardsData = [
   {
@@ -179,10 +179,12 @@ export default function ProgramsCardsSection() {
     target: targetRef,
   });
 
-  // Calculate the total width of cards to translate properly
-  // We have 8 cards. Let's translate by a percentage that covers them.
-  // Using calc to translate left by 100% of the container minus the viewport width.
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-85%"]);
+  // Calculate the exact translation to stop at the last card
+  // At 0% progress: 0% translation
+  // At 100% progress: -100% of container width + 100vw (stops exactly at right edge)
+  const xPercent = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const vwOffset = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const x = useMotionTemplate`calc(${xPercent}% + ${vwOffset}vw)`;
 
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-[#FFF8E5]">
@@ -200,7 +202,7 @@ export default function ProgramsCardsSection() {
         {/* Cards Container */}
         <motion.div 
           style={{ x }} 
-          className="flex gap-6 px-8 md:px-16 pt-20 pb-10 items-stretch"
+          className="flex w-max gap-6 px-8 md:px-16 pt-20 pb-10 items-stretch"
         >
           {cardsData.map((card) => (
             <div 
